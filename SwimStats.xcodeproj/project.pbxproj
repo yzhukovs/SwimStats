@@ -13,6 +13,7 @@
 		44B6710221BC89C000304FEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44B6710021BC89C000304FEC /* Main.storyboard */; };
 		44B6710421BC89C200304FEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B6710321BC89C200304FEC /* Assets.xcassets */; };
 		44B6710721BC89C200304FEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44B6710521BC89C200304FEC /* LaunchScreen.storyboard */; };
+		8B0DB4BFF496AC1CB4E67983 /* Pods_SwimStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BFBDE79744DFE407F2F442 /* Pods_SwimStats.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		44B6710321BC89C200304FEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44B6710621BC89C200304FEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44B6710821BC89C200304FEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57B02ABE4EDFCAD24D99217F /* Pods-SwimStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwimStats.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwimStats/Pods-SwimStats.release.xcconfig"; sourceTree = "<group>"; };
+		93BFBDE79744DFE407F2F442 /* Pods_SwimStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwimStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DBBEAFB0DDE68054F2B7473 /* Pods-SwimStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwimStats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwimStats/Pods-SwimStats.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B0DB4BFF496AC1CB4E67983 /* Pods_SwimStats.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				44B670FB21BC89C000304FEC /* SwimStats */,
 				44B670FA21BC89C000304FEC /* Products */,
+				94DEB77A67765EEE892AB5A9 /* Pods */,
+				E9B023D51082147D7D47AD92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,23 @@
 			path = SwimStats;
 			sourceTree = "<group>";
 		};
+		94DEB77A67765EEE892AB5A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DBBEAFB0DDE68054F2B7473 /* Pods-SwimStats.debug.xcconfig */,
+				57B02ABE4EDFCAD24D99217F /* Pods-SwimStats.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E9B023D51082147D7D47AD92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93BFBDE79744DFE407F2F442 /* Pods_SwimStats.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +98,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44B6710B21BC89C200304FEC /* Build configuration list for PBXNativeTarget "SwimStats" */;
 			buildPhases = (
+				A6342F83D0F84177D3F3CC24 /* [CP] Check Pods Manifest.lock */,
 				44B670F521BC89C000304FEC /* Sources */,
 				44B670F621BC89C000304FEC /* Frameworks */,
 				44B670F721BC89C000304FEC /* Resources */,
@@ -133,6 +158,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A6342F83D0F84177D3F3CC24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwimStats-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		44B670F521BC89C000304FEC /* Sources */ = {
@@ -284,6 +334,7 @@
 		};
 		44B6710C21BC89C200304FEC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DBBEAFB0DDE68054F2B7473 /* Pods-SwimStats.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +353,7 @@
 		};
 		44B6710D21BC89C200304FEC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57B02ABE4EDFCAD24D99217F /* Pods-SwimStats.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
