@@ -6,5 +6,6 @@ target 'SwimStats' do
   use_frameworks!
 
   # Pods for SwimStats
+  pod 'Firebase/Core'
 
 end
