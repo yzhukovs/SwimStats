@@ -7,5 +7,6 @@ target 'SwimStats' do
 
   # Pods for SwimStats
   pod 'Firebase/Core'
+  pod 'Firebase/Firestore'    
 
 end
