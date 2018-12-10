@@ -34,8 +34,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         self.aguaID = document.documentID
                         break
                     }
+                    
+                    db
+                        .collection("LSCs")
+                        .document(self.lsc)
+                        .collection("Clubs")
+                        .document(self.aguaID)
+                        .collection("Swimmers")
+                        .order(by: "last_name")
+                        .start(at: ["J"])
+                        .end(at: ["J" + "\u{f8ff}"])
+                        .getDocuments { (ds, err) in
+                            if let err = err {
+                                print("Error getting documents: \(err)")
+                            } else {
+                                for document in ds!.documents {
+                                    print(document.data())
+                                }
+                            }
+                    }
                 }
         }
+        
+        
+        
+        
+        
         // Override point for customization after application launch.
         return true
     }
