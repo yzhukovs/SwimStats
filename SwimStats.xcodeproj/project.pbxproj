@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		446DF14721BE218D00F08183 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 446DF14621BE218D00F08183 /* GoogleService-Info.plist */; };
 		4494A57D21BDE22700E42F1E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4494A57C21BDE22700E42F1E /* .gitignore */; };
 		44B670FD21BC89C000304FEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B670FC21BC89C000304FEC /* AppDelegate.swift */; };
-		44B670FF21BC89C000304FEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B670FE21BC89C000304FEC /* ViewController.swift */; };
 		44B6710221BC89C000304FEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44B6710021BC89C000304FEC /* Main.storyboard */; };
 		44B6710421BC89C200304FEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B6710321BC89C200304FEC /* Assets.xcassets */; };
 		44B6710721BC89C200304FEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44B6710521BC89C200304FEC /* LaunchScreen.storyboard */; };
@@ -17,10 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		446DF14621BE218D00F08183 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4494A57C21BDE22700E42F1E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		44B670F921BC89C000304FEC /* SwimStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwimStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B670FC21BC89C000304FEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44B670FE21BC89C000304FEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44B6710121BC89C000304FEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44B6710321BC89C200304FEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44B6710621BC89C200304FEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,11 +64,11 @@
 			isa = PBXGroup;
 			children = (
 				44B670FC21BC89C000304FEC /* AppDelegate.swift */,
-				44B670FE21BC89C000304FEC /* ViewController.swift */,
 				4494A57C21BDE22700E42F1E /* .gitignore */,
 				44B6710021BC89C000304FEC /* Main.storyboard */,
 				44B6710321BC89C200304FEC /* Assets.xcassets */,
 				44B6710521BC89C200304FEC /* LaunchScreen.storyboard */,
+				446DF14621BE218D00F08183 /* GoogleService-Info.plist */,
 				44B6710821BC89C200304FEC /* Info.plist */,
 			);
 			path = SwimStats;
@@ -153,6 +153,7 @@
 			files = (
 				4494A57D21BDE22700E42F1E /* .gitignore in Resources */,
 				44B6710721BC89C200304FEC /* LaunchScreen.storyboard in Resources */,
+				446DF14721BE218D00F08183 /* GoogleService-Info.plist in Resources */,
 				44B6710421BC89C200304FEC /* Assets.xcassets in Resources */,
 				44B6710221BC89C000304FEC /* Main.storyboard in Resources */,
 			);
@@ -214,7 +215,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44B670FF21BC89C000304FEC /* ViewController.swift in Sources */,
 				44B670FD21BC89C000304FEC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

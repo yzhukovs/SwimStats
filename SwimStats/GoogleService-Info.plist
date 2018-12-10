@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>938681965866-jkcvpq82gokfbhf7o0ffrq19cjilmasp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.938681965866-jkcvpq82gokfbhf7o0ffrq19cjilmasp</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCN78afFp3tjgGTxa6LxlW9APmGkvTqm9M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>938681965866</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>LambdaSchool.SwimStats</string>
+	<key>PROJECT_ID</key>
+	<string>swimstats-yz</string>
+	<key>STORAGE_BUCKET</key>
+	<string>swimstats-yz.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:938681965866:ios:f499dc50306bc785</string>
+	<key>DATABASE_URL</key>
+	<string>https://swimstats-yz.firebaseio.com</string>
+</dict>
+</plist>
