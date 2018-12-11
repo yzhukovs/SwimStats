@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Swimmers Table View Controller-->
+        <!--⭐️ Favorites ⭐️-->
         <scene sceneID="vXg-Mx-L9A">
             <objects>
                 <tableViewController id="L7X-AL-kzc" customClass="SwimmersTableViewController" customModule="SwimStats" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                             <outlet property="delegate" destination="L7X-AL-kzc" id="092-2D-nUC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="t8Y-pD-eQt">
+                    <navigationItem key="navigationItem" title="⭐️ Favorites ⭐️" id="t8Y-pD-eQt">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rNl-la-lGw">
                             <connections>
                                 <segue destination="MOE-KT-zyf" kind="show" id="pHP-x1-ulo"/>

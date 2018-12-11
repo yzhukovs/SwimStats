@@ -17,8 +17,9 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
     let agua = "Asphalt Green Unified Aquatics"
     var aguaID: String!
     let cell = "searchCell"
-    
+    var searchedSwimmers = [String]()
     var swimmers = [Swimmer]()
+    var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
   tableView.delegate = self
         
       
-       fetchUser()
+      
 
         tableView?.register(userCell.self, forCellReuseIdentifier: cell)
 
@@ -38,11 +39,10 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
         
         dismiss(animated: true, completion: nil)
     }
+   
     
-    
-    
-    func fetchUser(){
-        
+    func fetchUser(searchText: String){
+       
         let db = Firestore.firestore()
         db
             .collection("LSCs")
@@ -65,12 +65,13 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
                         .document(self.aguaID)
                         .collection("Swimmers")
                         .order(by: "last_name")
-                        //.start(at: ["J"])
-                        //.end(at: ["J" + "\u{f8ff}"])
+                        .start(at: [searchText])
+                        .end(at: [searchText + "\u{f8ff}"])
                         .getDocuments { (ds, err) in
                             if let err = err {
                                 print("Error getting documents: \(err)")
                             } else {
+                                self.swimmers = [Swimmer]()
                                 for document in ds!.documents {
                                     let swimmer = Swimmer()
                                     swimmer.setValuesForKeys(document.data())
@@ -105,8 +106,8 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cell , for: indexPath)
         // let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "searchCell")
         let swimmer = swimmers[indexPath.row]
-        cell.textLabel?.text = swimmer.first_name
-        cell.detailTextLabel?.text = swimmer.last_name
+        cell.textLabel?.text = swimmer.last_name
+        cell.detailTextLabel?.text = swimmer.first_name
         
         return cell
     }
@@ -123,6 +124,23 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
         
     }
 
+    
+    
+    func searchBar(_ UIsearch: UISearchBar, textDidChange searchText: String) {
+      
+        fetchUser(searchText: searchText)
+        searching = true
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ UIsearch: UISearchBar) {
+        searching = false
+        UIsearch.text = ""
+        tableView.reloadData()
+    }
+    
+    
+    
     
     /*
      // Override to support conditional editing of the table view.
@@ -153,6 +171,11 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
     // Get the new view controller using segue.destination.
     // Pass the selected object to the new view controller.
     //}
+    
+   
+    
+    
+    
     
     
     
