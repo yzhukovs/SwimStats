@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		446DF14721BE218D00F08183 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 446DF14621BE218D00F08183 /* GoogleService-Info.plist */; };
+		446DF14921BED99600F08183 /* SwimmersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DF14821BED99600F08183 /* SwimmersTableViewController.swift */; };
+		446DF14B21BED9BC00F08183 /* SearchSwimmerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DF14A21BED9BC00F08183 /* SearchSwimmerTableViewController.swift */; };
+		446DF14D21BEDC1300F08183 /* Swimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DF14C21BEDC1300F08183 /* Swimmer.swift */; };
 		4494A57D21BDE22700E42F1E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4494A57C21BDE22700E42F1E /* .gitignore */; };
 		44B670FD21BC89C000304FEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B670FC21BC89C000304FEC /* AppDelegate.swift */; };
 		44B6710221BC89C000304FEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44B6710021BC89C000304FEC /* Main.storyboard */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		446DF14621BE218D00F08183 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		446DF14821BED99600F08183 /* SwimmersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimmersTableViewController.swift; sourceTree = "<group>"; };
+		446DF14A21BED9BC00F08183 /* SearchSwimmerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSwimmerTableViewController.swift; sourceTree = "<group>"; };
+		446DF14C21BEDC1300F08183 /* Swimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swimmer.swift; sourceTree = "<group>"; };
 		4494A57C21BDE22700E42F1E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		44B670F921BC89C000304FEC /* SwimStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwimStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B670FC21BC89C000304FEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +72,9 @@
 				44B670FC21BC89C000304FEC /* AppDelegate.swift */,
 				4494A57C21BDE22700E42F1E /* .gitignore */,
 				44B6710021BC89C000304FEC /* Main.storyboard */,
+				446DF14C21BEDC1300F08183 /* Swimmer.swift */,
+				446DF14A21BED9BC00F08183 /* SearchSwimmerTableViewController.swift */,
+				446DF14821BED99600F08183 /* SwimmersTableViewController.swift */,
 				44B6710321BC89C200304FEC /* Assets.xcassets */,
 				44B6710521BC89C200304FEC /* LaunchScreen.storyboard */,
 				446DF14621BE218D00F08183 /* GoogleService-Info.plist */,
@@ -248,7 +257,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446DF14D21BEDC1300F08183 /* Swimmer.swift in Sources */,
+				446DF14921BED99600F08183 /* SwimmersTableViewController.swift in Sources */,
 				44B670FD21BC89C000304FEC /* AppDelegate.swift in Sources */,
+				446DF14B21BED9BC00F08183 /* SearchSwimmerTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

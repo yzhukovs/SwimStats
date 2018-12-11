@@ -13,48 +13,48 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    let lsc = "MR"
-    let agua = "Asphalt Green Unified Aquatics"
-    var aguaID: String!
+//    let lsc = "MR"
+//    let agua = "Asphalt Green Unified Aquatics"
+//    var aguaID: String!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        let db = Firestore.firestore()
-        
-        db
-            .collection("LSCs")
-            .document(lsc)
-            .collection("Clubs")
-            .whereField("name", isEqualTo: agua)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        self.aguaID = document.documentID
-                        break
-                    }
-                    
-                    db
-                        .collection("LSCs")
-                        .document(self.lsc)
-                        .collection("Clubs")
-                        .document(self.aguaID)
-                        .collection("Swimmers")
-                        .order(by: "last_name")
-                        .start(at: ["J"])
-                        .end(at: ["J" + "\u{f8ff}"])
-                        .getDocuments { (ds, err) in
-                            if let err = err {
-                                print("Error getting documents: \(err)")
-                            } else {
-                                for document in ds!.documents {
-                                    print(document.data())
-                                }
-                            }
-                    }
-                }
-        }
+//        let db = Firestore.firestore()
+//
+//        db
+//            .collection("LSCs")
+//            .document(lsc)
+//            .collection("Clubs")
+//            .whereField("name", isEqualTo: agua)
+//            .getDocuments() { (querySnapshot, err) in
+//                if let err = err {
+//                    print("Error getting documents: \(err)")
+//                } else {
+//                    for document in querySnapshot!.documents {
+//                        self.aguaID = document.documentID
+//                        break
+//                    }
+//
+//                    db
+//                        .collection("LSCs")
+//                        .document(self.lsc)
+//                        .collection("Clubs")
+//                        .document(self.aguaID)
+//                        .collection("Swimmers")
+//                        .order(by: "last_name")
+//                        .start(at: ["J"])
+//                        .end(at: ["J" + "\u{f8ff}"])
+//                        .getDocuments { (ds, err) in
+//                            if let err = err {
+//                                print("Error getting documents: \(err)")
+//                            } else {
+//                                for document in ds!.documents {
+//                                    print(document.data())
+//                                }
+//                            }
+//                    }
+//                }
+//        }
         
         
         
