@@ -14,23 +14,16 @@ class SwimmersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundColor = UIColor.cyan
-        let image = UIImage(named: "swimmer.png" )
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(handleNewMessage))
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+       
     }
 
     
-    @objc func handleNewMessage() {
-        let SearchSwimmerController = SearchSwimmerTableViewController()
-        let navController = UINavigationController(rootViewController: SearchSwimmerController)
-        present(navController, animated: true, completion: nil)
-    }
-    
+//    @objc func handleNewMessage() {
+//        let SearchSwimmerController = SearchSwimmerViewController()
+//        let navController = UINavigationController(rootViewController: SearchSwimmerController)
+//        present(navController, animated: true, completion: nil)
+//    }
+//
     
     // MARK: - Table view data source
 

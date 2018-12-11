@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 
-class SearchSwimmerTableViewController: UITableViewController, UISearchBarDelegate {
+class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate {
     
     
     let lsc = "MR"
@@ -22,13 +22,15 @@ class SearchSwimmerTableViewController: UITableViewController, UISearchBarDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //search.delegate = self
+   UIsearch.delegate = self
+    tableView.dataSource = self
+  tableView.delegate = self
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain  , target: self, action:#selector(goBack) )
-        fetchUser()
-        
-        tableView.register(userCell.self, forCellReuseIdentifier: cell)
-        
+      
+       fetchUser()
+
+        tableView?.register(userCell.self, forCellReuseIdentifier: cell)
+
     }
     
     
@@ -75,7 +77,7 @@ class SearchSwimmerTableViewController: UITableViewController, UISearchBarDelega
                                     self.swimmers.append(swimmer)
                                 }
                                 DispatchQueue.main.async {
-                                    self.tableView.reloadData()
+                                    self.tableView?.reloadData()
                                 }
                                 
                             }
@@ -93,12 +95,13 @@ class SearchSwimmerTableViewController: UITableViewController, UISearchBarDelega
     //        // #warning Incomplete implementation, return the number of sections
     //        return 1
     //    }
+   
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return swimmers.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cell , for: indexPath)
         // let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "searchCell")
         let swimmer = swimmers[indexPath.row]
@@ -119,7 +122,7 @@ class SearchSwimmerTableViewController: UITableViewController, UISearchBarDelega
         
         
     }
-    
+
     
     /*
      // Override to support conditional editing of the table view.
@@ -153,9 +156,10 @@ class SearchSwimmerTableViewController: UITableViewController, UISearchBarDelega
     
     
     
-    @IBOutlet weak var search: UISearchBar!
+    @IBOutlet weak var UIsearch: UISearchBar!
     
     
+    @IBOutlet weak var tableView: UITableView!
     
     
 }
