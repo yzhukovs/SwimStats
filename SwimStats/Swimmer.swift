@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 @objcMembers class Swimmer: NSObject{
     
@@ -14,5 +15,5 @@ import Foundation
     var last_name: String?
     var middle_name: String?
     var has_times: NSNumber?
-    
+    var ref: DocumentReference?
 }

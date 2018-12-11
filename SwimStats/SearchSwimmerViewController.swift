@@ -21,17 +21,18 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
     var swimmers = [Swimmer]()
     var searching = false
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-   UIsearch.delegate = self
-    tableView.dataSource = self
-  tableView.delegate = self
+        UIsearch.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
         
-      
-      
-
+        
+        
+        
         tableView?.register(userCell.self, forCellReuseIdentifier: cell)
-
+        
     }
     
     
@@ -39,10 +40,10 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
         
         dismiss(animated: true, completion: nil)
     }
-   
+    
     
     func fetchUser(searchText: String){
-       
+        
         let db = Firestore.firestore()
         db
             .collection("LSCs")
@@ -74,6 +75,7 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
                                 self.swimmers = [Swimmer]()
                                 for document in ds!.documents {
                                     let swimmer = Swimmer()
+                                    swimmer.ref = document.reference
                                     swimmer.setValuesForKeys(document.data())
                                     self.swimmers.append(swimmer)
                                 }
@@ -96,9 +98,9 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
     //        // #warning Incomplete implementation, return the number of sections
     //        return 1
     //    }
-   
     
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return swimmers.count
     }
     
@@ -123,11 +125,11 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
         
         
     }
-
+    
     
     
     func searchBar(_ UIsearch: UISearchBar, textDidChange searchText: String) {
-      
+        
         fetchUser(searchText: searchText)
         searching = true
         tableView.reloadData()
@@ -166,18 +168,18 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
     
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Get the new view controller using segue.destination.
-    // Pass the selected object to the new view controller.
-    //}
     
-   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Details" {
+            let detailVC = segue.destination as! DetailViewController
+            guard let index = tableView.indexPathForSelectedRow?.row else { return }
+            detailVC.swimmer = swimmers[index]
+        }
+    }
     
-    
-    
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "Details", sender: self)
+    }
     
     @IBOutlet weak var UIsearch: UISearchBar!
     

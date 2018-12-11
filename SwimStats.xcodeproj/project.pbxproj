@@ -16,6 +16,10 @@
 		44B6710221BC89C000304FEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44B6710021BC89C000304FEC /* Main.storyboard */; };
 		44B6710421BC89C200304FEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B6710321BC89C200304FEC /* Assets.xcassets */; };
 		44B6710721BC89C200304FEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44B6710521BC89C200304FEC /* LaunchScreen.storyboard */; };
+		44D3744521C015ED0049D15A /* capitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3744421C015EC0049D15A /* capitalizingFirstLetter.swift */; };
+		44D3744721C029570049D15A /* Favorites-Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3744621C029570049D15A /* Favorites-Model.swift */; };
+		44D3744921C030B30049D15A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3744821C030B30049D15A /* DetailViewController.swift */; };
+		44D3744B21C05AEC0049D15A /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3744A21C05AEC0049D15A /* Time.swift */; };
 		8B0DB4BFF496AC1CB4E67983 /* Pods_SwimStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BFBDE79744DFE407F2F442 /* Pods_SwimStats.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +35,10 @@
 		44B6710321BC89C200304FEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44B6710621BC89C200304FEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44B6710821BC89C200304FEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44D3744421C015EC0049D15A /* capitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = capitalizingFirstLetter.swift; sourceTree = "<group>"; };
+		44D3744621C029570049D15A /* Favorites-Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorites-Model.swift"; sourceTree = "<group>"; };
+		44D3744821C030B30049D15A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		44D3744A21C05AEC0049D15A /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		57B02ABE4EDFCAD24D99217F /* Pods-SwimStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwimStats.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwimStats/Pods-SwimStats.release.xcconfig"; sourceTree = "<group>"; };
 		93BFBDE79744DFE407F2F442 /* Pods_SwimStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwimStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBBEAFB0DDE68054F2B7473 /* Pods-SwimStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwimStats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwimStats/Pods-SwimStats.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,7 +80,11 @@
 				44B670FC21BC89C000304FEC /* AppDelegate.swift */,
 				4494A57C21BDE22700E42F1E /* .gitignore */,
 				44B6710021BC89C000304FEC /* Main.storyboard */,
+				44D3744821C030B30049D15A /* DetailViewController.swift */,
+				44D3744421C015EC0049D15A /* capitalizingFirstLetter.swift */,
+				44D3744621C029570049D15A /* Favorites-Model.swift */,
 				446DF14C21BEDC1300F08183 /* Swimmer.swift */,
+				44D3744A21C05AEC0049D15A /* Time.swift */,
 				446DF14A21BED9BC00F08183 /* SearchSwimmerViewController.swift */,
 				446DF14821BED99600F08183 /* SwimmersTableViewController.swift */,
 				44B6710321BC89C200304FEC /* Assets.xcassets */,
@@ -257,10 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44D3744B21C05AEC0049D15A /* Time.swift in Sources */,
 				446DF14D21BEDC1300F08183 /* Swimmer.swift in Sources */,
 				446DF14921BED99600F08183 /* SwimmersTableViewController.swift in Sources */,
 				44B670FD21BC89C000304FEC /* AppDelegate.swift in Sources */,
+				44D3744721C029570049D15A /* Favorites-Model.swift in Sources */,
 				446DF14B21BED9BC00F08183 /* SearchSwimmerViewController.swift in Sources */,
+				44D3744521C015ED0049D15A /* capitalizingFirstLetter.swift in Sources */,
+				44D3744921C030B30049D15A /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

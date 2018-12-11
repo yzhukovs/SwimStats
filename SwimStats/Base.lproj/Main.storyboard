@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,14 +37,14 @@
                     <navigationItem key="navigationItem" title="⭐️ Favorites ⭐️" id="t8Y-pD-eQt">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rNl-la-lGw">
                             <connections>
-                                <segue destination="MOE-KT-zyf" kind="show" id="pHP-x1-ulo"/>
+                                <segue destination="MOE-KT-zyf" kind="show" identifier="List" id="pHP-x1-ulo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOj-on-Oyf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068" y="97.601199400299862"/>
+            <point key="canvasLocation" x="751" y="95"/>
         </scene>
         <!--Search Swimmer View Controller-->
         <scene sceneID="gi0-N3-Upa">
@@ -89,6 +90,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="VAi-bb-GA6" kind="show" identifier="Details" id="kaS-f9-NBS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -116,7 +120,85 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="po9-gD-5dS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1965.5999999999999" y="97.601199400299862"/>
+            <point key="canvasLocation" x="1750" y="95"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="3HJ-0D-Dn0">
+            <objects>
+                <viewController id="VAi-bb-GA6" customClass="DetailViewController" customModule="SwimStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pPh-Kf-2yz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b2m-fL-6qf">
+                                <rect key="frame" x="20" y="84" width="335" height="71"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJj-nQ-keb">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLf-hJ-Miz">
+                                        <rect key="frame" x="0.0" y="39.5" width="335" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9zw-jE-Glf">
+                                <rect key="frame" x="20" y="165" width="335" height="337"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailCell" id="Wx8-Tp-mio">
+                                        <rect key="frame" x="0.0" y="28" width="335" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wx8-Tp-mio" id="npy-aU-gHr">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="VAi-bb-GA6" id="bBl-Nb-Tw4"/>
+                                    <outlet property="delegate" destination="VAi-bb-GA6" id="Vuv-aC-DRy"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b2m-fL-6qf" firstAttribute="centerX" secondItem="pPh-Kf-2yz" secondAttribute="centerX" id="7Ov-6O-Yka"/>
+                            <constraint firstItem="tdE-8o-XXN" firstAttribute="trailing" secondItem="b2m-fL-6qf" secondAttribute="trailing" constant="20" id="7wb-fk-lLW"/>
+                            <constraint firstItem="b2m-fL-6qf" firstAttribute="leading" secondItem="tdE-8o-XXN" secondAttribute="leading" constant="20" id="OAE-38-eIj"/>
+                            <constraint firstItem="9zw-jE-Glf" firstAttribute="top" secondItem="b2m-fL-6qf" secondAttribute="bottom" constant="10" id="SbG-jm-Jnw"/>
+                            <constraint firstItem="tdE-8o-XXN" firstAttribute="trailing" secondItem="9zw-jE-Glf" secondAttribute="trailing" constant="20" id="fMu-LI-xQp"/>
+                            <constraint firstItem="9zw-jE-Glf" firstAttribute="centerX" secondItem="pPh-Kf-2yz" secondAttribute="centerX" id="lmT-6U-mHG"/>
+                            <constraint firstItem="b2m-fL-6qf" firstAttribute="top" secondItem="tdE-8o-XXN" secondAttribute="top" constant="20" id="tVL-Hn-tyY"/>
+                            <constraint firstItem="9zw-jE-Glf" firstAttribute="centerY" secondItem="pPh-Kf-2yz" secondAttribute="centerY" id="tbl-DT-3ac"/>
+                            <constraint firstItem="9zw-jE-Glf" firstAttribute="leading" secondItem="tdE-8o-XXN" secondAttribute="leading" constant="20" id="xPE-tn-LMR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tdE-8o-XXN"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="Dcq-0G-hPS">
+                        <barButtonItem key="rightBarButtonItem" title="⭐️Add to Favorites⭐️" id="fbi-zN-N3h">
+                            <connections>
+                                <action selector="addToFavorites:" destination="VAi-bb-GA6" id="Y9W-y8-gZb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="first_name" destination="VJj-nQ-keb" id="RfZ-J0-6PG"/>
+                        <outlet property="last_name" destination="aLf-hJ-Miz" id="1to-s0-A99"/>
+                        <outlet property="tableView" destination="9zw-jE-Glf" id="Q9d-vV-2h9"/>
+                        <outlet property="tblView_times" destination="9zw-jE-Glf" id="jyW-fo-cnK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adv-7d-r1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2543" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LOB-DR-paJ">
