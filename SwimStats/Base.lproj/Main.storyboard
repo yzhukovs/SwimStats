@@ -31,20 +31,14 @@
                                             <rect key="frame" x="16" y="-3" width="39.5" height="25.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QWU-a0-onF">
                                             <rect key="frame" x="16" y="22.5" width="67" height="24"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="water-1018808_960_720.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zO7-6Y-ZvS">
-                                            <rect key="frame" x="0.0" y="-1" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -67,7 +61,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOj-on-Oyf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="726" y="761"/>
+            <point key="canvasLocation" x="495" y="830"/>
         </scene>
         <!--Search Swimmer View Controller-->
         <scene sceneID="gi0-N3-Upa">
@@ -183,7 +177,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kye-4M-LIE">
                                                     <rect key="frame" x="0.0" y="58" width="335" height="120.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -198,7 +192,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="icE-RP-DDt"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -207,7 +201,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="g27-nx-FkU"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -221,13 +215,13 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="Mn8-J8-UoC"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scf-nH-W8G">
                                                                     <rect key="frame" x="0.0" y="29" width="163.5" height="21"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -289,6 +283,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addToFav" destination="fbi-zN-N3h" id="Nut-Ku-OQh"/>
                         <outlet property="first_name" destination="VJj-nQ-keb" id="RfZ-J0-6PG"/>
                         <outlet property="last_name" destination="aLf-hJ-Miz" id="1to-s0-A99"/>
                         <outlet property="tableView" destination="9zw-jE-Glf" id="Q9d-vV-2h9"/>
@@ -318,9 +313,6 @@
             <point key="canvasLocation" x="-86" y="117"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="water-1018808_960_720.jpg" width="960" height="720"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="UmD-By-n1r"/>
     </inferredMetricsTieBreakers>

@@ -35,16 +35,24 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
         
     }
     
-    
-    @objc func goBack() {
-        
-        dismiss(animated: true, completion: nil)
+    override func viewDidAppear(_ animated: Bool) {
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.black
+        nav?.tintColor = UIColor.yellow
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+         imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "240_F_105873983_jtA1SGMqRd1lI67mry39OYDf9SEGE0ko")
+        imageView.image = image
+        navigationItem.titleView = imageView
     }
+    
+    
     
     
     func fetchUser(searchText: String){
         
         let db = Firestore.firestore()
+        NSLog("search: club")
         db
             .collection("LSCs")
             .document(lsc)
@@ -59,6 +67,7 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
                         break
                     }
                     
+                    NSLog("search: swimmers: \(searchText)")
                     db
                         .collection("LSCs")
                         .document(self.lsc)
@@ -67,11 +76,13 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
                         .collection("Swimmers")
                         .order(by: "last_name")
                         .start(at: [searchText])
-                        .end(at: [searchText + "\u{f8ff}"])
+                        //.end(at: [searchText + "\u{f8ff}"])
+                        .limit(to: 10)
                         .getDocuments { (ds, err) in
                             if let err = err {
                                 print("Error getting documents: \(err)")
                             } else {
+                                NSLog("found: swimmers: \(searchText): \(ds!.documents.count)")
                                 self.swimmers = [Swimmer]()
                                 for document in ds!.documents {
                                     let swimmer = Swimmer()
