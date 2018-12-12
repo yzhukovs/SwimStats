@@ -16,4 +16,5 @@ import Firebase
     var middle_name: String?
     var has_times: NSNumber?
     var ref: DocumentReference?
+    
 }

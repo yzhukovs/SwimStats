@@ -42,8 +42,9 @@ var times = [Time]()
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
+        
         let time = times[indexPath.row]
-        cell.textLabel?.text = "time:\(String(describing: time.date))"
+        cell.textLabel?.text = "time: \(String(describing: time.seconds ?? 0))" + " " + time.stroke!
         
         return cell
     }
@@ -55,7 +56,7 @@ var times = [Time]()
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        
+        updateViews()
         getTimes()
         // Do any additional setup after loading the view.
     }
@@ -95,6 +96,7 @@ var times = [Time]()
     
     
     @IBAction func addToFavorites(_ sender: Any) {
+        User.addFavorite(swimmerRef: (swimmer?.ref!)!)
     }
     
     

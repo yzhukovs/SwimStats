@@ -148,7 +148,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9zw-jE-Glf">
-                                <rect key="frame" x="20" y="165" width="335" height="337"/>
+                                <rect key="frame" x="20" y="165" width="335" height="450"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailCell" id="Wx8-Tp-mio">
@@ -172,10 +172,10 @@
                             <constraint firstItem="tdE-8o-XXN" firstAttribute="trailing" secondItem="b2m-fL-6qf" secondAttribute="trailing" constant="20" id="7wb-fk-lLW"/>
                             <constraint firstItem="b2m-fL-6qf" firstAttribute="leading" secondItem="tdE-8o-XXN" secondAttribute="leading" constant="20" id="OAE-38-eIj"/>
                             <constraint firstItem="9zw-jE-Glf" firstAttribute="top" secondItem="b2m-fL-6qf" secondAttribute="bottom" constant="10" id="SbG-jm-Jnw"/>
+                            <constraint firstItem="tdE-8o-XXN" firstAttribute="bottom" secondItem="9zw-jE-Glf" secondAttribute="bottom" constant="8" id="dZJ-Gr-Q5N"/>
                             <constraint firstItem="tdE-8o-XXN" firstAttribute="trailing" secondItem="9zw-jE-Glf" secondAttribute="trailing" constant="20" id="fMu-LI-xQp"/>
                             <constraint firstItem="9zw-jE-Glf" firstAttribute="centerX" secondItem="pPh-Kf-2yz" secondAttribute="centerX" id="lmT-6U-mHG"/>
                             <constraint firstItem="b2m-fL-6qf" firstAttribute="top" secondItem="tdE-8o-XXN" secondAttribute="top" constant="20" id="tVL-Hn-tyY"/>
-                            <constraint firstItem="9zw-jE-Glf" firstAttribute="centerY" secondItem="pPh-Kf-2yz" secondAttribute="centerY" id="tbl-DT-3ac"/>
                             <constraint firstItem="9zw-jE-Glf" firstAttribute="leading" secondItem="tdE-8o-XXN" secondAttribute="leading" constant="20" id="xPE-tn-LMR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tdE-8o-XXN"/>
@@ -198,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adv-7d-r1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2543" y="98"/>
+            <point key="canvasLocation" x="2894" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LOB-DR-paJ">

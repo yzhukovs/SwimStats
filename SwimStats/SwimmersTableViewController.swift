@@ -14,9 +14,12 @@ class SwimmersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundColor = UIColor.cyan
-       
+      
+        
     }
 
+    
+    var favorites = [Swimmer]()
     
 //    @objc func handleNewMessage() {
 //        let SearchSwimmerController = SearchSwimmerViewController()
@@ -27,14 +30,14 @@ class SwimmersTableViewController: UITableViewController {
     
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+     
+        return favorites.count
     }
 
     /*
