@@ -55,11 +55,7 @@ class User {
                 
         }
         
-        
-        
-        
-        
-        
+    
       
     }
     
@@ -89,6 +85,26 @@ class User {
         
     }
     
+    static func isFavorite(swimmerRef: DocumentReference, completion: @escaping (Bool?, Error?) -> Void) {
+        db
+            .collection("Users")
+            .document(userId)
+            .collection("Favorites")
+            .whereField("swimmer_ref", isEqualTo: swimmerRef)
+            .getDocuments() {
+                (ds, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    completion(nil, err)
+                } else {
+                    completion(ds!.documents.count > 0, nil)
+     
+                }
+                
+                
+        }
+        
+    }
     
 }
 

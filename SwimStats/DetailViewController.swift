@@ -11,6 +11,8 @@ import Firebase
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
+    
+    
     func getTimes(){
      swimmer?.ref?.collection("Times").getDocuments { (ds, err) in
         if let err = err {
@@ -42,15 +44,18 @@ var times = [Time]()
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
+       
         
-        let time = times[indexPath.row]
-        cell.textLabel?.text = "time: \(String(describing: time.seconds ?? 0))" + " " + time.stroke!
+        if let cell = cell as? DetailTableViewCell {
+        cell.times = times[indexPath.row]
+        }
         
         return cell
     }
     
     
     var swimmer: Swimmer?
+    var favSwimmer: Swimmer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +66,22 @@ var times = [Time]()
         // Do any additional setup after loading the view.
     }
     
+    
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        User.isFavorite(swimmerRef: (swimmer?.ref!)!) { (fav, err) in
+//            if let err = err {
+//                print("Error \(err)")
+//            } else {
+//                DispatchQueue.main.async {
+//                    self.tableView?.reloadData()
+//                }
+//
+//            }
+//
+//        }
+//    }
     
     
     
@@ -76,7 +97,7 @@ var times = [Time]()
     }
     
 
-    /*
+ 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -84,7 +105,7 @@ var times = [Time]()
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+   
 
     
     @IBOutlet weak var first_name: UILabel!
