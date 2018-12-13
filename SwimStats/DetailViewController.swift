@@ -14,7 +14,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func getTimes(){
-        swimmer?.ref?.collection("Times").getDocuments { (ds, err) in
+        swimmer?.ref?
+            .collection("Times")
+            .order(by: "date", descending: true)
+            .getDocuments { (ds, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -33,6 +36,46 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
     }
+    
+    
+    func getCategory(stroke: String?, course: String?, distance: Int?) {
+        guard var q: Query = swimmer?.ref?.collection("Times") else {return}
+        
+        if let stroke = stroke {
+            q = q.whereField("stroke", isEqualTo: stroke)
+        }
+        
+        if let course = course {
+            q = q.whereField("course", isEqualTo: course)
+        }
+        
+        if let distance = distance {
+            q = q.whereField("distance", isEqualTo: distance)
+        }
+ 
+        q.getDocuments { (ds, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.times = [Time]()
+                for document in ds!.documents {
+                    let time = Time()
+                    
+                    time.setValuesForKeys(document.data())
+                    self.times.append(time)
+                    
+                }
+                DispatchQueue.main.async {
+                    self.tableView?.reloadData()
+                }
+                
+            }
+        }
+        
+    }
+    
+    
+    
     
     
     
@@ -72,21 +115,26 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewWillAppear(animated)
         User.isFavorite(
             swimmerRef: (swimmer?.ref!)!,
-            completion: self.addFavoritesCompletion
+            completion: self.updateFavoriteButton
         )
+    
+  //segControlStroke.selectedSegmentIndex = segControlStroke
+    
     }
     
     
     func updateViews(){
         
         guard let swim = swimmer else {return }
-        self.title = swim.first_name
-        first_name?.text = swim.first_name
-        last_name.text = swim.last_name
+        self.title = swim.first_name! + " " + swim.last_name!
         
+
         
     }
     
+    
+    
+   
     
     // MARK: - Navigation
     
@@ -97,10 +145,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     //}
     
     
-    
-    @IBOutlet weak var first_name: UILabel!
-    
-    @IBOutlet weak var last_name: UILabel!
+
     
     
     @IBOutlet weak var tblView_times: UITableView!
@@ -116,6 +161,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         )
     }
   
+    private func updateFavoriteButton(isFavorite: Bool?, err: Error?) -> Void {
+        if let _ = err {return}
+        self.addToFav.title = isFavorite! ? "⭐️" : "✩"
+    }
+    
     private func addFavoritesCompletion(fav: Bool?, err: Error?) -> Void {
         if let _ = err {
             return
@@ -123,19 +173,165 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         if fav! {
             User.removeFavorites(swimmerRef: (self.swimmer?.ref!)!)
-            DispatchQueue.main.async {
-                self.addToFav.title = "⭐️Add To Favorites⭐️"
-            }
         } else {
             User.addFavorite(swimmerRef: (self.swimmer?.ref!)!)
-            DispatchQueue.main.async {
-                self.addToFav.title = "⭐️Remove From Favorites⭐️"
-            }
+        }
+        DispatchQueue.main.async {
+            self.updateFavoriteButton(isFavorite: !fav!, err: nil)
         }
     }
     
+ 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.black
+        nav?.tintColor = UIColor.yellow
+
+    }
+    
+    
     
     @IBOutlet weak var tableView: UITableView!
+    
+  
+
+    @IBOutlet weak var segControlStroke: UISegmentedControl!
+    
+    
+    
+    
+    var strokeIndex = 0
+    var stroke: String? {
+        if strokeIndex == 0 { return "FR"}
+        if strokeIndex == 1 {return "BK" }
+        if strokeIndex == 2 {return "BR"}
+        if strokeIndex == 3 {return "FL" }
+        if strokeIndex == 4 {return "IM"}
+   return "FR"
+    }
+
+    var courseIndex = 0
+    var course: String? {
+        if courseIndex == 0 {return "SCY" }
+        if courseIndex == 1 {return "LCM" }
+        return "SCY"
+    }
+
+
+    var distanceIndex = 0
+    var distance: Int? {
+        if distanceIndex == 0 {return nil}
+        if distanceIndex == 1 {return 25 }
+        if distanceIndex == 2 {return 50 }
+        if distanceIndex == 3 {return 100}
+        if distanceIndex == 4 {return 200}
+        if distanceIndex == 5 {return 400}
+        if distanceIndex == 6{return 800}
+        if distanceIndex == 7 {return 1000}
+        if distanceIndex == 8 {return 1650}
+          return nil
+    }
+
+    
+    //25, 50, 100, 200, 400, 800, 1000, 1650
+    
+    
+    @IBAction func segStroke(_ sender: Any) {
+      strokeIndex = segControlStroke.selectedSegmentIndex
+       getCategory(stroke: stroke, course: course, distance: distance)
+        
+
+    }
+ 
+    
+    @IBAction func courseSeg(_ sender: Any) {
+        courseIndex = segCourse.selectedSegmentIndex
+        getCategory(stroke: stroke, course: course, distance: distance)
+    }
+    
+    @IBOutlet weak var segCourse: UISegmentedControl!
+    
+    
+    
+    @IBAction func distanceSeg(_ sender: Any) {
+        distanceIndex = segDistance.selectedSegmentIndex
+         getCategory(stroke: stroke, course: course, distance: distance)
+    }
+    
+    
+    @IBOutlet weak var segDistance: UISegmentedControl!
+    
+    
+    
+    @IBAction func courseBarB(_ sender: Any) {
+        showAlertWithThreeButton()
+    }
+    
+    
+    
+    func showAlertWithThreeButton() {
+        let alert = UIAlertController(title: "Course", message: "Please pick SCY(short course) or LCM (long course)", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "SCY", style: .default, handler: { (_) in
+            self.swimmer?.ref?
+                .collection("Times")
+                .whereField("course", isEqualTo: "SCY")
+                .getDocuments { (ds, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        self.times = [Time]()
+                        for document in ds!.documents {
+                            let time = Time()
+                            
+                            time.setValuesForKeys(document.data())
+                            self.times.append(time)
+                            
+                        }
+                        DispatchQueue.main.async {
+                            self.tableView?.reloadData()
+                        }
+                        
+                    }
+            }
+
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "LCM", style: .default, handler: { (_) in
+            self.swimmer?.ref?
+                .collection("Times")
+                .whereField("course", isEqualTo: "LCM")
+                .getDocuments { (ds, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        self.times = [Time]()
+                        for document in ds!.documents {
+                            let time = Time()
+                            
+                            time.setValuesForKeys(document.data())
+                            self.times.append(time)
+                            
+                        }
+                        DispatchQueue.main.async {
+                            self.tableView?.reloadData()
+                        }
+                        
+                    }
+            }
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+   
+    
+    
+    
+    
+    
     
     
     

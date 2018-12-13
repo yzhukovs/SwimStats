@@ -13,9 +13,9 @@ import Firebase
 class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate {
     
     
-    let lsc = "MR"
-    let agua = "Asphalt Green Unified Aquatics"
-    var aguaID: String!
+    static let lsc = "MR"
+    static let agua = "Asphalt Green Unified Aquatics"
+    static var aguaID: String!
     let cell = "searchCell"
     var searchedSwimmers = [String]()
     var swimmers = [Swimmer]()
@@ -46,38 +46,35 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
         navigationItem.titleView = imageView
     }
     
+    static let db = Firestore.firestore()
+    static let clubsRef = db
+        .collection("LSCs")
+        .document(lsc)
+        .collection("Clubs")
     
     
     
     func fetchUser(searchText: String){
         
-        let db = Firestore.firestore()
         NSLog("search: club")
-        db
-            .collection("LSCs")
-            .document(lsc)
-            .collection("Clubs")
-            .whereField("name", isEqualTo: agua)
+        SearchSwimmerViewController.clubsRef
+            .whereField("name", isEqualTo: SearchSwimmerViewController.agua)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        self.aguaID = document.documentID
+                        SearchSwimmerViewController.aguaID = document.documentID
                         break
                     }
                     
                     NSLog("search: swimmers: \(searchText)")
-                    db
-                        .collection("LSCs")
-                        .document(self.lsc)
-                        .collection("Clubs")
-                        .document(self.aguaID)
+                    SearchSwimmerViewController.clubsRef
+                        .document(SearchSwimmerViewController.aguaID)
                         .collection("Swimmers")
                         .order(by: "last_name")
                         .start(at: [searchText])
-                        //.end(at: [searchText + "\u{f8ff}"])
-                        .limit(to: 10)
+                        .end(at: [searchText + "\u{f8ff}"])
                         .getDocuments { (ds, err) in
                             if let err = err {
                                 print("Error getting documents: \(err)")

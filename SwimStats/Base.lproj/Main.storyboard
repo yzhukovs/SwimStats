@@ -74,7 +74,7 @@
                             <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NRp-Pv-03Q">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="barTintColor" red="0.20329336410000001" green="0.77030368780000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="MOE-KT-zyf" id="Dgo-bS-2G8"/>
@@ -147,25 +147,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b2m-fL-6qf">
-                                <rect key="frame" x="20" y="84" width="335" height="83"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJj-nQ-keb">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="37.5"/>
-                                        <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLf-hJ-Miz">
-                                        <rect key="frame" x="0.0" y="45.5" width="335" height="37.5"/>
-                                        <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9zw-jE-Glf">
-                                <rect key="frame" x="20" y="177" width="335" height="438"/>
+                                <rect key="frame" x="20" y="161" width="335" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailCell" rowHeight="179" id="Wx8-Tp-mio" customClass="DetailTableViewCell" customModule="SwimStats" customModuleProvider="target">
@@ -192,7 +175,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="icE-RP-DDt"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -201,7 +184,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="g27-nx-FkU"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -215,13 +198,13 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="Mn8-J8-UoC"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scf-nH-W8G">
                                                                     <rect key="frame" x="0.0" y="29" width="163.5" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -258,41 +241,100 @@
                                     <outlet property="delegate" destination="VAi-bb-GA6" id="Vuv-aC-DRy"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1We-XN-o07">
+                                <rect key="frame" x="0.0" y="64" width="375" height="29"/>
+                                <color key="backgroundColor" red="1" green="0.95395314399999998" blue="0.20738302219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <segments>
+                                    <segment title="Freestyle"/>
+                                    <segment title="Backstroke"/>
+                                    <segment title="Breaststroke"/>
+                                    <segment title="Butterfly"/>
+                                    <segment title="IM"/>
+                                </segments>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segStroke:" destination="VAi-bb-GA6" eventType="valueChanged" id="vON-LD-OBL"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F9b-GS-AL7">
+                                <rect key="frame" x="94" y="94" width="169" height="29"/>
+                                <color key="backgroundColor" red="1" green="0.95395314399999998" blue="0.20738302219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <segments>
+                                    <segment title="SCY"/>
+                                    <segment title="LCM"/>
+                                </segments>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="courseSeg:" destination="VAi-bb-GA6" eventType="valueChanged" id="vWb-NV-oGZ"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rBS-0Z-kC8">
+                                <rect key="frame" x="0.0" y="124" width="375" height="29"/>
+                                <color key="backgroundColor" red="0.99858922809999995" green="1" blue="0.56470236029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="25"/>
+                                    <segment title="50"/>
+                                    <segment title="100"/>
+                                    <segment title="200"/>
+                                    <segment title="400"/>
+                                    <segment title="800"/>
+                                    <segment title="1000"/>
+                                    <segment title="1650"/>
+                                </segments>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="distanceSeg:" destination="VAi-bb-GA6" eventType="valueChanged" id="9dF-my-Ikf"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="b2m-fL-6qf" firstAttribute="centerX" secondItem="pPh-Kf-2yz" secondAttribute="centerX" id="7Ov-6O-Yka"/>
-                            <constraint firstItem="tdE-8o-XXN" firstAttribute="trailing" secondItem="b2m-fL-6qf" secondAttribute="trailing" constant="20" id="7wb-fk-lLW"/>
-                            <constraint firstItem="b2m-fL-6qf" firstAttribute="leading" secondItem="tdE-8o-XXN" secondAttribute="leading" constant="20" id="OAE-38-eIj"/>
-                            <constraint firstItem="9zw-jE-Glf" firstAttribute="top" secondItem="b2m-fL-6qf" secondAttribute="bottom" constant="10" id="SbG-jm-Jnw"/>
+                            <constraint firstItem="tdE-8o-XXN" firstAttribute="trailing" secondItem="rBS-0Z-kC8" secondAttribute="trailing" id="6K7-cm-I3U"/>
+                            <constraint firstItem="rBS-0Z-kC8" firstAttribute="top" secondItem="F9b-GS-AL7" secondAttribute="bottom" constant="2" id="Fhg-Wo-sdl"/>
+                            <constraint firstItem="9zw-jE-Glf" firstAttribute="top" secondItem="tdE-8o-XXN" secondAttribute="top" constant="97" id="M8x-cK-Rwc"/>
+                            <constraint firstItem="1We-XN-o07" firstAttribute="top" secondItem="tdE-8o-XXN" secondAttribute="top" id="ScK-DK-nvF"/>
+                            <constraint firstItem="1We-XN-o07" firstAttribute="leading" secondItem="tdE-8o-XXN" secondAttribute="leading" id="Uh6-zO-OKO"/>
+                            <constraint firstItem="tdE-8o-XXN" firstAttribute="trailing" secondItem="F9b-GS-AL7" secondAttribute="trailing" constant="112" id="Zyf-7d-csh"/>
+                            <constraint firstItem="rBS-0Z-kC8" firstAttribute="leading" secondItem="tdE-8o-XXN" secondAttribute="leading" id="bWt-pr-aX1"/>
+                            <constraint firstItem="F9b-GS-AL7" firstAttribute="leading" secondItem="tdE-8o-XXN" secondAttribute="leading" constant="94" id="bty-2p-0np"/>
                             <constraint firstItem="tdE-8o-XXN" firstAttribute="bottom" secondItem="9zw-jE-Glf" secondAttribute="bottom" constant="8" id="dZJ-Gr-Q5N"/>
                             <constraint firstItem="tdE-8o-XXN" firstAttribute="trailing" secondItem="9zw-jE-Glf" secondAttribute="trailing" constant="20" id="fMu-LI-xQp"/>
+                            <constraint firstItem="tdE-8o-XXN" firstAttribute="trailing" secondItem="1We-XN-o07" secondAttribute="trailing" id="kr4-bJ-Rcz"/>
                             <constraint firstItem="9zw-jE-Glf" firstAttribute="centerX" secondItem="pPh-Kf-2yz" secondAttribute="centerX" id="lmT-6U-mHG"/>
-                            <constraint firstItem="b2m-fL-6qf" firstAttribute="top" secondItem="tdE-8o-XXN" secondAttribute="top" constant="20" id="tVL-Hn-tyY"/>
+                            <constraint firstItem="F9b-GS-AL7" firstAttribute="top" secondItem="1We-XN-o07" secondAttribute="bottom" constant="2" id="nUZ-YS-lpD"/>
                             <constraint firstItem="9zw-jE-Glf" firstAttribute="leading" secondItem="tdE-8o-XXN" secondAttribute="leading" constant="20" id="xPE-tn-LMR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tdE-8o-XXN"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="Dcq-0G-hPS">
-                        <barButtonItem key="rightBarButtonItem" title="⭐️Add to Favorites⭐️" id="fbi-zN-N3h">
-                            <connections>
-                                <action selector="addToFavorites:" destination="VAi-bb-GA6" id="Y9W-y8-gZb"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="⭐️" id="fbi-zN-N3h">
+                                <connections>
+                                    <action selector="addToFavorites:" destination="VAi-bb-GA6" id="Y9W-y8-gZb"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Course" id="i2F-xo-YP8">
+                                <connections>
+                                    <action selector="courseBarB:" destination="VAi-bb-GA6" id="Lek-Ub-0BK"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addToFav" destination="fbi-zN-N3h" id="Nut-Ku-OQh"/>
-                        <outlet property="first_name" destination="VJj-nQ-keb" id="RfZ-J0-6PG"/>
-                        <outlet property="last_name" destination="aLf-hJ-Miz" id="1to-s0-A99"/>
+                        <outlet property="segControlStroke" destination="1We-XN-o07" id="uz5-3h-iso"/>
+                        <outlet property="segCourse" destination="F9b-GS-AL7" id="4gF-fw-7ed"/>
+                        <outlet property="segDistance" destination="rBS-0Z-kC8" id="FRo-Xa-zvE"/>
                         <outlet property="tableView" destination="9zw-jE-Glf" id="Q9d-vV-2h9"/>
                         <outlet property="tblView_times" destination="9zw-jE-Glf" id="jyW-fo-cnK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adv-7d-r1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2780" y="95"/>
+            <point key="canvasLocation" x="2716" y="-42"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LOB-DR-paJ">
@@ -314,6 +356,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UmD-By-n1r"/>
+        <segue reference="kaS-f9-NBS"/>
     </inferredMetricsTieBreakers>
 </document>
