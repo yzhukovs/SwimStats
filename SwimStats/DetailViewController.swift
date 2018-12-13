@@ -142,8 +142,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCuts" {
             let detailVC = segue.destination as! CutsTableViewController
-            guard let index = tableView.indexPathForSelectedRow?.row else { return }
-            detailVC.swimmer = swimmers[index]
+            detailVC.swimmer = swimmer
+            detailVC.times = times
         }
         
     }

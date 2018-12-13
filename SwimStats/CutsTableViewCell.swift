@@ -36,9 +36,10 @@ class CutsTableViewCell: UITableViewCell {
     @IBAction func ageTextField(_ sender: Any) {
     }
     @IBOutlet weak var neededTime: UILabel!
-    var times: Time? {
+    
+    var time: Time? {
         didSet{
-            yourTIme?.text = String(describing: times?.seconds)
+            yourTIme?.text = String(describing: time?.seconds)
         }
         
     }

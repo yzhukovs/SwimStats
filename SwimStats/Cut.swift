@@ -14,8 +14,21 @@ struct Cut {
     let age: (Int) -> Bool
     let male: Double
     let female: Double
+    let course: String
+    
+    
+    
+    func timeMatches(time: Time)-> Bool {
+        guard let c = time.course else {return false}
+        guard let s = time.stroke else {return false}
+        guard let d = time.distance else {return false}
+        
+        return c == course && s == stroke && Int(truncating: d) == distance
+        
+    }
  
 }
+
 
 struct Cuts {
     let name: String
@@ -24,9 +37,9 @@ struct Cuts {
     static let MRJO = Cuts(
         name: "Metro 2018-2019 SCY JO",
       cuts: [
-        Cut(stroke: "FR", distance: 50, age: {$0<=9}, male: 0.0, female: parseTime("32.39")!),
-        Cut(stroke: "FR", distance: 100, age: {$0<=9}, male: 0.0, female: parseTime("1:11.19")!),
-        Cut(stroke: "FR", distance: 200, age: {$0<=9}, male: 0.0, female: parseTime("2:32.39")!),
+        Cut(stroke: "FR", distance: 50, age: {$0<=9}, male: 0.0, female: parseTime("32.39")!, course: "SCY"),
+        Cut(stroke: "FR", distance: 100, age: {$0<=9}, male: 0.0, female: parseTime("1:11.19")!, course: "SCY"),
+        Cut(stroke: "FR", distance: 200, age: {$0<=9}, male: 0.0, female: parseTime("2:32.39")!, course: "SCY"),
         
         
       ]
