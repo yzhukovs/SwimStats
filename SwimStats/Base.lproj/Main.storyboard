@@ -337,14 +337,15 @@
             </objects>
             <point key="canvasLocation" x="2716" y="-42"/>
         </scene>
-        <!--Title-->
+        <!--Cuts Table View Controller-->
         <scene sceneID="PFb-WU-No2">
             <objects>
                 <tableViewController id="pEF-sL-fLt" customClass="CutsTableViewController" customModule="SwimStats" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rbQ-dI-NtO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="rbQ-dI-NtO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <pickerView key="tableHeaderView" contentMode="scaleAspectFit" semanticContentAttribute="spatial" id="v60-2C-hdR">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -354,7 +355,7 @@
                             </connections>
                         </pickerView>
                         <pickerView key="tableFooterView" contentMode="scaleToFill" id="VeI-OM-WnW">
-                            <rect key="frame" x="0.0" y="264" width="375" height="69"/>
+                            <rect key="frame" x="0.0" y="309.5" width="375" height="69"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <connections>
                                 <outlet property="dataSource" destination="38N-yX-E2d" id="f08-pV-RnU"/>
@@ -363,7 +364,7 @@
                         </pickerView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cutsCell" rowHeight="119" id="KQh-Gb-bOC" customClass="CutsTableViewCell" customModule="SwimStats" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="145" width="375" height="119"/>
+                                <rect key="frame" x="0.0" y="172.5" width="375" height="119"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KQh-Gb-bOC" id="JWj-5Z-2Go">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="118.5"/>
@@ -454,7 +455,6 @@
                             <outlet property="delegate" destination="pEF-sL-fLt" id="Jke-vQ-VaJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="27g-Oa-abn"/>
                     <connections>
                         <outlet property="ageDelegate" destination="38N-yX-E2d" id="hKk-FR-YiD"/>
                         <outlet property="agePicker" destination="VeI-OM-WnW" id="lXr-g8-SCf"/>

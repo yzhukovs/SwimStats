@@ -9,25 +9,26 @@
 import UIKit
 
 class CutsTableViewCell: UITableViewCell {
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
     func updateView(){
-       guard let t = time else {return}
-        if (cut?.ifTimeIsBeaten(time:t) ?? false) {
-        return self.backgroundColor = UIColor.green
+        guard let t = time else {return}
+        if ((cut?.ifTimeIsBeaten(time:t))!)  {
+            //NSLog("time beaten: cut=\(cut), time=\(t.seconds), event=\(t.distance) \(t.stroke) \(t.course)")
+            return self.backgroundColor = UIColor(hue: 0.1861, saturation: 1, brightness: 0.69, alpha: 1.0)
         } else { return self.backgroundColor = UIColor.lightGray
-    }
         }
+    }
     
     @IBOutlet weak var stroke: UILabel!
     
@@ -36,7 +37,7 @@ class CutsTableViewCell: UITableViewCell {
     @IBOutlet weak var timeDiff: UILabel!
     
     @IBOutlet weak var yourTIme: UILabel!
-
+    
     
     
     @IBAction func ageTextField(_ sender: Any) {
@@ -59,14 +60,14 @@ class CutsTableViewCell: UITableViewCell {
             if let t = time {
                 if let needToDrop = cut?.needToDrop(time: t) {
                     timeDiff?.text = "Need to drop: \(needToDrop)" } else {
-                        self.timeDiff?.text = ""
+                    self.timeDiff?.text = ""
                     
                 }
             }
             neededTime.text = "Needed time:\(cut?.female ?? 0.00)"
             stroke?.text = "Stroke:\(cut?.stroke ?? " ")"
             distance?.text = "Distance in yards: \(cut?.distance ?? 0)"
-           updateView()
+            updateView()
             
         }
         

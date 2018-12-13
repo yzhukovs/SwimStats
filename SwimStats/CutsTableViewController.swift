@@ -10,23 +10,26 @@ import UIKit
 
 
 class CutsTableViewController: UITableViewController {
-
+    
     @IBOutlet var cutsDelegate: CutsPickerDelegate!
     
     @IBOutlet var ageDelegate: AgePickerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.black
+        nav?.tintColor = UIColor.yellow
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         cutsDelegate.parent = self
         meetPicker.dataSource = cutsDelegate
         meetPicker.delegate = cutsDelegate
-   
+        
         ageDelegate.parent = self
         age = ageDelegate.ages[0]
         agePicker.dataSource = ageDelegate
@@ -35,35 +38,35 @@ class CutsTableViewController: UITableViewController {
         cutsDelegate.pickerView(meetPicker, didSelectRow: 0, inComponent: 0)
         ageDelegate.pickerView(agePicker, didSelectRow: 0, inComponent: 0)
         meetPicker.transform = CGAffineTransform(scaleX: 0.5, y: 0.8)
-       
+        
         // Adjust the firstPicker
-       // self.meetPicker.frame = CGRect(0,0,theWidth,self.meetPicker.frame.size.height);
+        // self.meetPicker.frame = CGRect(0,0,theWidth,self.meetPicker.frame.size.height);
         
         // Adjust the secondPicker
         //self.agePicker.frame = CGRect(theWidth, 0, theWidth,self.agePicker.frame.size.height)
     }
-
-  
-   var swimmer: Swimmer?
+    
+    
+    var swimmer: Swimmer?
     var times: [Time]?
     var pickedCuts = Cuts.Available[0].cuts
     var age: Int?
     // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
+    
+    //    override func numberOfSections(in tableView: UITableView) -> Int {
+    //        // #warning Incomplete implementation, return the number of sections
+    //        return 0
+    //    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return pickedCuts.count
     }
-
-
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cutsCell", for: indexPath)
-
+        
         if let cell = cell as? CutsTableViewCell {
             let cut = pickedCuts[indexPath.row]
             cell.cut = cut
@@ -72,19 +75,24 @@ class CutsTableViewController: UITableViewController {
                 .sorted(by: { (a, b) -> Bool in
                     Double(truncating: a.seconds!) < Double(truncating: b.seconds!)
                 })
-            .first
+                .first
+            
+            /*if let t = cell.time {
+                NSLog("matches: \(cut) -> \(t.distance) \(t.stroke) \(t.course) \(t.seconds)")
+            }*/
+            
         }
         
         return cell
     }
     
-   
+    
     
     
     @IBOutlet weak var meetPicker: UIPickerView!
-  
-
-
+    
+    
+    
     
     
     
@@ -94,8 +102,8 @@ class CutsTableViewController: UITableViewController {
     
     
     
-    }
-    
+}
+
 class CutsPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     var parent: CutsTableViewController?
     var cuts: Cuts?
@@ -125,15 +133,15 @@ class CutsPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource
         return 1
     }
     
-   
-   
-  
+    
+    
+    
 }
 
 class AgePickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     var parent: CutsTableViewController?
     let ages = Array(6...18)
-  
+    
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return ages.count
