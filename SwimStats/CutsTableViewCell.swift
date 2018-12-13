@@ -21,7 +21,13 @@ class CutsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    
+    func updateView(){
+       guard let t = time else {return}
+        if (cut?.ifTimeIsBeaten(time:t) ?? false) {
+        return self.backgroundColor = UIColor.green
+        } else { return self.backgroundColor = UIColor.lightGray
+    }
+        }
     
     @IBOutlet weak var stroke: UILabel!
     
@@ -40,6 +46,7 @@ class CutsTableViewCell: UITableViewCell {
     var time: Time? {
         didSet{
             yourTIme?.text = String(describing: time?.seconds)
+            updateView()
         }
         
     }
@@ -49,8 +56,10 @@ class CutsTableViewCell: UITableViewCell {
     
     var cut: Cut? {
         didSet{
+            neededTime.text = String(describing: cut!.female)
            stroke?.text = cut?.stroke
             distance?.text = String(describing: cut!.distance)
+           updateView()
             
         }
         
