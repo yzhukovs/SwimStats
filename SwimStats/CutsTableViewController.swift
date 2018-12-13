@@ -8,8 +8,12 @@
 
 import UIKit
 
-class CutsTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CutsTableViewController: UITableViewController {
 
+    @IBOutlet var cutsDelegate: CutsPickerDelegate!
+    
+    @IBOutlet var ageDelegate: AgePickerDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,14 +22,20 @@ class CutsTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        meetPicker.dataSource = self
-        meetPicker.delegate = self
+        cutsDelegate.parent = self
+        meetPicker.dataSource = cutsDelegate
+        meetPicker.delegate = cutsDelegate
+   
+        ageDelegate.parent = self
+        agePicker.dataSource = ageDelegate
+        agePicker.delegate = ageDelegate
+    
     }
 
+  
    var swimmer: Swimmer?
     var pickedCuts = Cuts.Available[0].cuts
-    
+    var age: Int?
     // MARK: - Table view data source
 
 //    override func numberOfSections(in tableView: UITableView) -> Int {
@@ -101,9 +111,15 @@ class CutsTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     
     
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+    @IBOutlet weak var agePicker: UIPickerView!
+    
+    
+    
+    
     }
+    
+class CutsPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
+    var parent: CutsTableViewController?
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return Cuts.Available.count
@@ -111,18 +127,51 @@ class CutsTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        pickedCuts = Cuts.Available[row].cuts
-        tableView.reloadData()
-            
-            
+        parent?.pickedCuts = Cuts.Available[row].cuts
+        parent?.tableView.reloadData()
+        
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return  Cuts.Available[row].name
     }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    
+    
+    
+}
+
+class AgePickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
+    var parent: CutsTableViewController?
+    let ages = Array(6...18)
+  
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return ages.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        parent?.age = ages[row]
+        
+        parent?.tableView.reloadData()
+        
         
     }
     
-
-
-
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return  String(ages[row])
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    
+    
+    
+}

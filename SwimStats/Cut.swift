@@ -22,7 +22,7 @@ struct Cuts {
     let cuts: [Cut]
     
     static let MRJO = Cuts(
-        name: "Metro Swimming 2018-2019 SCY JO",
+        name: "Metro 2018-2019 SCY JO",
       cuts: [
         Cut(stroke: "FR", distance: 50, age: {$0<=9}, male: 0.0, female: parseTime("32.39")!),
         Cut(stroke: "FR", distance: 100, age: {$0<=9}, male: 0.0, female: parseTime("1:11.19")!),

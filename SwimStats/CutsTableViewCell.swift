@@ -38,7 +38,7 @@ class CutsTableViewCell: UITableViewCell {
     @IBOutlet weak var neededTime: UILabel!
     var times: Time? {
         didSet{
-            yourTIme.text = String(describing: times?.seconds)
+            yourTIme?.text = String(describing: times?.seconds)
         }
         
     }
@@ -49,7 +49,7 @@ class CutsTableViewCell: UITableViewCell {
     var cut: Cut? {
         didSet{
            stroke?.text = cut?.stroke
-           distance?.text = String(describing: cut?.distance)
+            distance?.text = String(describing: cut!.distance)
             
         }
         
