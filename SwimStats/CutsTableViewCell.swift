@@ -45,7 +45,7 @@ class CutsTableViewCell: UITableViewCell {
     
     var time: Time? {
         didSet{
-            yourTIme?.text = String(describing: time?.seconds)
+            yourTIme?.text =  "Your time:\( time?.seconds ?? 0.00)"
             updateView()
         }
         
@@ -56,9 +56,16 @@ class CutsTableViewCell: UITableViewCell {
     
     var cut: Cut? {
         didSet{
-            neededTime.text = String(describing: cut!.female)
-           stroke?.text = cut?.stroke
-            distance?.text = String(describing: cut!.distance)
+            if let t = time {
+                if let needToDrop = cut?.needToDrop(time: t) {
+                    timeDiff?.text = "Need to drop: \(needToDrop)" } else {
+                        self.timeDiff?.text = ""
+                    
+                }
+            }
+            neededTime.text = "Needed time:\(cut?.female ?? 0.00)"
+            stroke?.text = "Stroke:\(cut?.stroke ?? " ")"
+            distance?.text = "Distance in yards: \(cut?.distance ?? 0)"
            updateView()
             
         }

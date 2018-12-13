@@ -32,6 +32,15 @@ struct Cut {
         return Double(truncating: s) <= female
         
     }
+ 
+    
+    func needToDrop(time: Time)->Double? {
+        if ifTimeIsBeaten(time: time) {return nil}
+        guard let s = time.seconds else {return nil}
+       return Double(truncating: s) - female
+    
+    }
+    
     
 }
 

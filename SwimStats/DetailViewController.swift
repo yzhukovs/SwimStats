@@ -134,6 +134,13 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showAlertWithThreeButton()
+    }
+    
    
     
     // MARK: - Navigation
@@ -274,62 +281,62 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
 //
 //
 //
-//    func showAlertWithThreeButton() {
-//        let alert = UIAlertController(title: "Course", message: "Please pick SCY(short course) or LCM (long course)", preferredStyle: .alert)
-//
-//        alert.addAction(UIAlertAction(title: "SCY", style: .default, handler: { (_) in
-//            self.swimmer?.ref?
-//                .collection("Times")
-//                .whereField("course", isEqualTo: "SCY")
-//                .getDocuments { (ds, err) in
-//                    if let err = err {
-//                        print("Error getting documents: \(err)")
-//                    } else {
-//                        self.times = [Time]()
-//                        for document in ds!.documents {
-//                            let time = Time()
-//
-//                            time.setValuesForKeys(document.data())
-//                            self.times.append(time)
-//
-//                        }
-//                        DispatchQueue.main.async {
-//                            self.tableView?.reloadData()
-//                        }
-//
-//                    }
-//            }
-//
-//
-//        }))
-//
-//        alert.addAction(UIAlertAction(title: "LCM", style: .default, handler: { (_) in
-//            self.swimmer?.ref?
-//                .collection("Times")
-//                .whereField("course", isEqualTo: "LCM")
-//                .getDocuments { (ds, err) in
-//                    if let err = err {
-//                        print("Error getting documents: \(err)")
-//                    } else {
-//                        self.times = [Time]()
-//                        for document in ds!.documents {
-//                            let time = Time()
-//
-//                            time.setValuesForKeys(document.data())
-//                            self.times.append(time)
-//
-//                        }
-//                        DispatchQueue.main.async {
-//                            self.tableView?.reloadData()
-//                        }
-//
-//                    }
-//            }
-//
-//        }))
-//
-//        self.present(alert, animated: true, completion: nil)
-//    }
+    func showAlertWithThreeButton() {
+        let alert = UIAlertController(title: "Course", message: "Please pick SCY(short course) or LCM (long course)", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "SCY", style: .default, handler: { (_) in
+            self.swimmer?.ref?
+                .collection("Times")
+                .whereField("course", isEqualTo: "SCY")
+                .getDocuments { (ds, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        self.times = [Time]()
+                        for document in ds!.documents {
+                            let time = Time()
+
+                            time.setValuesForKeys(document.data())
+                            self.times.append(time)
+
+                        }
+                        DispatchQueue.main.async {
+                            self.tableView?.reloadData()
+                        }
+
+                    }
+            }
+
+
+        }))
+
+        alert.addAction(UIAlertAction(title: "LCM", style: .default, handler: { (_) in
+            self.swimmer?.ref?
+                .collection("Times")
+                .whereField("course", isEqualTo: "LCM")
+                .getDocuments { (ds, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        self.times = [Time]()
+                        for document in ds!.documents {
+                            let time = Time()
+
+                            time.setValuesForKeys(document.data())
+                            self.times.append(time)
+
+                        }
+                        DispatchQueue.main.async {
+                            self.tableView?.reloadData()
+                        }
+
+                    }
+            }
+
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
    
     
     

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CutsTableViewController: UITableViewController {
 
     @IBOutlet var cutsDelegate: CutsPickerDelegate!
@@ -33,7 +34,13 @@ class CutsTableViewController: UITableViewController {
         
         cutsDelegate.pickerView(meetPicker, didSelectRow: 0, inComponent: 0)
         ageDelegate.pickerView(agePicker, didSelectRow: 0, inComponent: 0)
-
+        meetPicker.transform = CGAffineTransform(scaleX: 0.5, y: 0.8)
+       
+        // Adjust the firstPicker
+       // self.meetPicker.frame = CGRect(0,0,theWidth,self.meetPicker.frame.size.height);
+        
+        // Adjust the secondPicker
+        //self.agePicker.frame = CGRect(theWidth, 0, theWidth,self.agePicker.frame.size.height)
     }
 
   
@@ -72,10 +79,13 @@ class CutsTableViewController: UITableViewController {
     }
     
    
-
     
     
     @IBOutlet weak var meetPicker: UIPickerView!
+  
+
+
+    
     
     
     
@@ -115,9 +125,9 @@ class CutsPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource
         return 1
     }
     
-    
-    
-    
+   
+   
+  
 }
 
 class AgePickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -142,7 +152,12 @@ class AgePickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 40.0
+    }
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        return 100
+    }
     
     
     

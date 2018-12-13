@@ -28,7 +28,7 @@ class SearchSwimmerViewController: UIViewController, UISearchBarDelegate, UITabl
         tableView.dataSource = self
         tableView.delegate = self
         
-        
+        self.tableView.layer.cornerRadius = 10.0
         
         
         tableView?.register(userCell.self, forCellReuseIdentifier: cell)

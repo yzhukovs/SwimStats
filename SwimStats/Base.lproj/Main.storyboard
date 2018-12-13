@@ -337,7 +337,7 @@
             </objects>
             <point key="canvasLocation" x="2716" y="-42"/>
         </scene>
-        <!--Cuts Table View Controller-->
+        <!--Title-->
         <scene sceneID="PFb-WU-No2">
             <objects>
                 <tableViewController id="pEF-sL-fLt" customClass="CutsTableViewController" customModule="SwimStats" customModuleProvider="target" sceneMemberID="viewController">
@@ -398,7 +398,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="QXB-NB-q1y">
                                                     <rect key="frame" x="191.5" y="0.0" width="183.5" height="118.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0X-RT-Npa">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0X-RT-Npa">
                                                             <rect key="frame" x="0.0" y="0.0" width="183.5" height="37.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -454,6 +454,7 @@
                             <outlet property="delegate" destination="pEF-sL-fLt" id="Jke-vQ-VaJ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="27g-Oa-abn"/>
                     <connections>
                         <outlet property="ageDelegate" destination="38N-yX-E2d" id="hKk-FR-YiD"/>
                         <outlet property="agePicker" destination="VeI-OM-WnW" id="lXr-g8-SCf"/>

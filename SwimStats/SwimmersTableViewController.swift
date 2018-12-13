@@ -13,6 +13,7 @@ class SwimmersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.layer.cornerRadius = 5.00
   
     }
     
