@@ -27,8 +27,9 @@ struct Cut {
         
     }
  
-    func ifTimeIsBeaten(time: Time)-> Bool {
-        guard let s = time.seconds else {return false}
+    func ifTimeIsBeaten(time: Time?)-> Bool {
+        guard let t = time else {return false}
+        guard let s = t.seconds else {return false}
         return Double(truncating: s) <= female
         
     }

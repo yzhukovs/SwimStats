@@ -22,11 +22,11 @@ class CutsTableViewCell: UITableViewCell {
     }
     
     func updateView(){
-        guard let t = time else {return}
-        if ((cut?.ifTimeIsBeaten(time:t))!)  {
+        if ((cut?.ifTimeIsBeaten(time:time))!)  {
             //NSLog("time beaten: cut=\(cut), time=\(t.seconds), event=\(t.distance) \(t.stroke) \(t.course)")
             return self.backgroundColor = UIColor(hue: 0.1861, saturation: 1, brightness: 0.69, alpha: 1.0)
-        } else { return self.backgroundColor = UIColor.lightGray
+        } else {
+            return self.backgroundColor = UIColor.lightGray
         }
     }
     
@@ -61,7 +61,6 @@ class CutsTableViewCell: UITableViewCell {
                 if let needToDrop = cut?.needToDrop(time: t) {
                     timeDiff?.text = "Need to drop: \(needToDrop)" } else {
                     self.timeDiff?.text = ""
-                    
                 }
             }
             neededTime.text = "Needed time:\(cut?.female ?? 0.00)"

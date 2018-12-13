@@ -13,8 +13,6 @@ class CutsTableViewController: UITableViewController {
     
     @IBOutlet var cutsDelegate: CutsPickerDelegate!
     
-    @IBOutlet var ageDelegate: AgePickerDelegate!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nav = self.navigationController?.navigationBar
@@ -30,13 +28,8 @@ class CutsTableViewController: UITableViewController {
         meetPicker.dataSource = cutsDelegate
         meetPicker.delegate = cutsDelegate
         
-        ageDelegate.parent = self
-        age = ageDelegate.ages[0]
-        agePicker.dataSource = ageDelegate
-        agePicker.delegate = ageDelegate
         
         cutsDelegate.pickerView(meetPicker, didSelectRow: 0, inComponent: 0)
-        ageDelegate.pickerView(agePicker, didSelectRow: 0, inComponent: 0)
         meetPicker.transform = CGAffineTransform(scaleX: 0.5, y: 0.8)
         
         // Adjust the firstPicker
@@ -50,7 +43,8 @@ class CutsTableViewController: UITableViewController {
     var swimmer: Swimmer?
     var times: [Time]?
     var pickedCuts = Cuts.Available[0].cuts
-    var age: Int?
+    //var age: Int?
+    let age = 11
     // MARK: - Table view data source
     
     //    override func numberOfSections(in tableView: UITableView) -> Int {
@@ -120,7 +114,7 @@ class CutsPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource
     
     func updateViews() {
         guard let cuts = cuts  else { return}
-        parent?.pickedCuts = cuts.cuts.filter({$0.age(parent!.age!)})
+        parent?.pickedCuts = cuts.cuts.filter({$0.age(parent!.age)})
         parent?.tableView.reloadData()
         
     }
@@ -133,39 +127,6 @@ class CutsPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource
         return 1
     }
     
-    
-    
-    
-}
-
-class AgePickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
-    var parent: CutsTableViewController?
-    let ages = Array(6...18)
-    
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return ages.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        parent?.age = ages[row]
-        parent?.cutsDelegate?.updateViews()
-        
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return  String(ages[row])
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 40.0
-    }
-    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return 100
-    }
     
     
     
