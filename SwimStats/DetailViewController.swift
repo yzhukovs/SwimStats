@@ -96,7 +96,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    
+    var swimmers = [Swimmer]()
     var swimmer: Swimmer?
     var favSwimmer: Swimmer?
     
@@ -138,11 +138,15 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Get the new view controller using segue.destination.
-    // Pass the selected object to the new view controller.
-    //}
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCuts" {
+            let detailVC = segue.destination as! CutsTableViewController
+            guard let index = tableView.indexPathForSelectedRow?.row else { return }
+            detailVC.swimmer = swimmers[index]
+        }
+        
+    }
     
     
 
@@ -263,74 +267,78 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var segDistance: UISegmentedControl!
     
     
-    
-    @IBAction func courseBarB(_ sender: Any) {
-        showAlertWithThreeButton()
-    }
-    
-    
-    
-    func showAlertWithThreeButton() {
-        let alert = UIAlertController(title: "Course", message: "Please pick SCY(short course) or LCM (long course)", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "SCY", style: .default, handler: { (_) in
-            self.swimmer?.ref?
-                .collection("Times")
-                .whereField("course", isEqualTo: "SCY")
-                .getDocuments { (ds, err) in
-                    if let err = err {
-                        print("Error getting documents: \(err)")
-                    } else {
-                        self.times = [Time]()
-                        for document in ds!.documents {
-                            let time = Time()
-                            
-                            time.setValuesForKeys(document.data())
-                            self.times.append(time)
-                            
-                        }
-                        DispatchQueue.main.async {
-                            self.tableView?.reloadData()
-                        }
-                        
-                    }
-            }
-
-            
-        }))
-        
-        alert.addAction(UIAlertAction(title: "LCM", style: .default, handler: { (_) in
-            self.swimmer?.ref?
-                .collection("Times")
-                .whereField("course", isEqualTo: "LCM")
-                .getDocuments { (ds, err) in
-                    if let err = err {
-                        print("Error getting documents: \(err)")
-                    } else {
-                        self.times = [Time]()
-                        for document in ds!.documents {
-                            let time = Time()
-                            
-                            time.setValuesForKeys(document.data())
-                            self.times.append(time)
-                            
-                        }
-                        DispatchQueue.main.async {
-                            self.tableView?.reloadData()
-                        }
-                        
-                    }
-            }
-            
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
+//
+//    @IBAction func courseBarB(_ sender: Any) {
+//        showAlertWithThreeButton()
+//    }
+//
+//
+//
+//    func showAlertWithThreeButton() {
+//        let alert = UIAlertController(title: "Course", message: "Please pick SCY(short course) or LCM (long course)", preferredStyle: .alert)
+//
+//        alert.addAction(UIAlertAction(title: "SCY", style: .default, handler: { (_) in
+//            self.swimmer?.ref?
+//                .collection("Times")
+//                .whereField("course", isEqualTo: "SCY")
+//                .getDocuments { (ds, err) in
+//                    if let err = err {
+//                        print("Error getting documents: \(err)")
+//                    } else {
+//                        self.times = [Time]()
+//                        for document in ds!.documents {
+//                            let time = Time()
+//
+//                            time.setValuesForKeys(document.data())
+//                            self.times.append(time)
+//
+//                        }
+//                        DispatchQueue.main.async {
+//                            self.tableView?.reloadData()
+//                        }
+//
+//                    }
+//            }
+//
+//
+//        }))
+//
+//        alert.addAction(UIAlertAction(title: "LCM", style: .default, handler: { (_) in
+//            self.swimmer?.ref?
+//                .collection("Times")
+//                .whereField("course", isEqualTo: "LCM")
+//                .getDocuments { (ds, err) in
+//                    if let err = err {
+//                        print("Error getting documents: \(err)")
+//                    } else {
+//                        self.times = [Time]()
+//                        for document in ds!.documents {
+//                            let time = Time()
+//
+//                            time.setValuesForKeys(document.data())
+//                            self.times.append(time)
+//
+//                        }
+//                        DispatchQueue.main.async {
+//                            self.tableView?.reloadData()
+//                        }
+//
+//                    }
+//            }
+//
+//        }))
+//
+//        self.present(alert, animated: true, completion: nil)
+//    }
    
     
     
     
     
+    @IBAction func cuts(_ sender: Any) {
+        
+        
+    }
     
     
     

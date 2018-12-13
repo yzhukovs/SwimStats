@@ -24,6 +24,9 @@
 		44E9B55F21C0C3190002CC3F /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E9B55E21C0C3190002CC3F /* DetailTableViewCell.swift */; };
 		44E9B56121C167430002CC3F /* water-1018808_960_720.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E9B56021C167420002CC3F /* water-1018808_960_720.jpg */; };
 		44E9B56321C18E800002CC3F /* 240_F_105873983_jtA1SGMqRd1lI67mry39OYDf9SEGE0ko.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44E9B56221C18E800002CC3F /* 240_F_105873983_jtA1SGMqRd1lI67mry39OYDf9SEGE0ko.jpg */; };
+		44E9B56521C208320002CC3F /* Cut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E9B56421C208320002CC3F /* Cut.swift */; };
+		44E9B56721C2116B0002CC3F /* CutsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E9B56621C2116B0002CC3F /* CutsTableViewController.swift */; };
+		44E9B56921C212D70002CC3F /* CutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E9B56821C212D70002CC3F /* CutsTableViewCell.swift */; };
 		8B0DB4BFF496AC1CB4E67983 /* Pods_SwimStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BFBDE79744DFE407F2F442 /* Pods_SwimStats.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,9 @@
 		44E9B55E21C0C3190002CC3F /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		44E9B56021C167420002CC3F /* water-1018808_960_720.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "water-1018808_960_720.jpg"; sourceTree = "<group>"; };
 		44E9B56221C18E800002CC3F /* 240_F_105873983_jtA1SGMqRd1lI67mry39OYDf9SEGE0ko.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 240_F_105873983_jtA1SGMqRd1lI67mry39OYDf9SEGE0ko.jpg; sourceTree = "<group>"; };
+		44E9B56421C208320002CC3F /* Cut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cut.swift; sourceTree = "<group>"; };
+		44E9B56621C2116B0002CC3F /* CutsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsTableViewController.swift; sourceTree = "<group>"; };
+		44E9B56821C212D70002CC3F /* CutsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutsTableViewCell.swift; sourceTree = "<group>"; };
 		57B02ABE4EDFCAD24D99217F /* Pods-SwimStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwimStats.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwimStats/Pods-SwimStats.release.xcconfig"; sourceTree = "<group>"; };
 		93BFBDE79744DFE407F2F442 /* Pods_SwimStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwimStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBBEAFB0DDE68054F2B7473 /* Pods-SwimStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwimStats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwimStats/Pods-SwimStats.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +94,9 @@
 				44B670FC21BC89C000304FEC /* AppDelegate.swift */,
 				4494A57C21BDE22700E42F1E /* .gitignore */,
 				44B6710021BC89C000304FEC /* Main.storyboard */,
+				44E9B56821C212D70002CC3F /* CutsTableViewCell.swift */,
+				44E9B56621C2116B0002CC3F /* CutsTableViewController.swift */,
+				44E9B56421C208320002CC3F /* Cut.swift */,
 				44E9B55E21C0C3190002CC3F /* DetailTableViewCell.swift */,
 				44D3744821C030B30049D15A /* DetailViewController.swift */,
 				44D3744421C015EC0049D15A /* capitalizingFirstLetter.swift */,
@@ -285,7 +294,10 @@
 			files = (
 				44D3744B21C05AEC0049D15A /* Time.swift in Sources */,
 				446DF14D21BEDC1300F08183 /* Swimmer.swift in Sources */,
+				44E9B56721C2116B0002CC3F /* CutsTableViewController.swift in Sources */,
+				44E9B56921C212D70002CC3F /* CutsTableViewCell.swift in Sources */,
 				446DF14921BED99600F08183 /* SwimmersTableViewController.swift in Sources */,
+				44E9B56521C208320002CC3F /* Cut.swift in Sources */,
 				44B670FD21BC89C000304FEC /* AppDelegate.swift in Sources */,
 				44D3744721C029570049D15A /* Favorites-Model.swift in Sources */,
 				44D3744D21C0703F0049D15A /* User.swift in Sources */,
