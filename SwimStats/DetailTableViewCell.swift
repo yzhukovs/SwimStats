@@ -29,7 +29,9 @@ class DetailTableViewCell: UITableViewCell {
     
     var times: Time? {
         didSet {
-            time?.text = "Time: \(String(describing:times?.seconds ?? 0))"
+            if let swimTime = times?.seconds {
+                time?.text = Time.formatTime(time: swimTime)
+            }
             distance?.text = "Distance: \(String(describing:times?.distance ?? 0))"
             stroke?.text = times?.stroke
             date?.text = toString(date:(times?.date)!)
@@ -41,7 +43,7 @@ class DetailTableViewCell: UITableViewCell {
     func toString(date: NSDate)-> String{
        // let date = NSDate() // Get Todays Date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.dateFormat = "MM-dd-yyyy"
        return  dateFormatter.string(from: date as Date)
 
     }

@@ -335,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adv-7d-r1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2716" y="-42"/>
+            <point key="canvasLocation" x="2351" y="-62"/>
         </scene>
         <!--Cuts Table View Controller-->
         <scene sceneID="PFb-WU-No2">
@@ -455,7 +455,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U0y-4m-D7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="v6R-Ee-WZJ" userLabel="CutsDelegate" customClass="CutsPickerDelegate" customModule="SwimStats" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="3599" y="-43"/>
+            <point key="canvasLocation" x="3239" y="-63"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LOB-DR-paJ">

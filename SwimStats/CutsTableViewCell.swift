@@ -46,10 +46,11 @@ class CutsTableViewCell: UITableViewCell {
     
     var time: Time? {
         didSet{
-            yourTIme?.text =  "Your time:\( time?.seconds ?? 0.00)"
+            if let time = time?.seconds {
+                yourTIme?.text =  "Your time:\(Time.formatTime(time:time))"
             updateView()
         }
-        
+        }
     }
     
     
@@ -59,11 +60,14 @@ class CutsTableViewCell: UITableViewCell {
         didSet{
             if let t = time {
                 if let needToDrop = cut?.needToDrop(time: t) {
-                    timeDiff?.text = "Need to drop: \(needToDrop)" } else {
+                    timeDiff?.text = "Need to drop: \(Time.formatTime(time:needToDrop))" } else {
                     self.timeDiff?.text = ""
                 }
             }
-            neededTime.text = "Needed time:\(cut?.female ?? 0.00)"
+            if let cutTime = cut?.female {
+                neededTime.text = "Needed time:\(Time.formatTime(time: cutTime))"
+
+            }
             stroke?.text = "Stroke:\(cut?.stroke ?? " ")"
             distance?.text = "Distance in yards: \(cut?.distance ?? 0)"
             updateView()
@@ -71,6 +75,9 @@ class CutsTableViewCell: UITableViewCell {
         }
         
     }
+    
+  
+    
     
     
 }
